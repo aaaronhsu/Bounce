@@ -1,0 +1,13 @@
+public class Screen {
+  ArrayList<Click> clickList = new ArrayList();
+
+  public void render() {
+    renderClicks();
+  }
+
+  public void renderClicks() {
+    for (Click i : clickList) {
+      i.render();
+    }
+  }
+}
