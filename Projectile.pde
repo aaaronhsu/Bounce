@@ -12,6 +12,8 @@ public class Projectile {
     xSpeed = x1 - x2;
     ySpeed = y1 - y2;
 
+    modifyProjectileSpeed();
+
     // if (xSpeed < 1) xSpeed = 3;
     // if (ySpeed < 1) ySpeed = 3;
 
@@ -21,7 +23,30 @@ public class Projectile {
     xDir = 1;
     yDir = 1;
 
-    radius = 10;
+    radius = 15;
+  }
+
+  public void modifyProjectileSpeed() {
+    if (abs(xSpeed) > 10) {
+      float factor = xSpeed / 10;
+      xSpeed = factor;
+      ySpeed = ySpeed / abs(factor);
+    }
+    else if (abs(xSpeed) > 5) {
+      float factor = xSpeed / 5;
+      xSpeed = factor;
+      ySpeed = ySpeed / abs(factor);
+    }
+    else if (abs(xSpeed) > 3) {
+      float factor = xSpeed / 3;
+      xSpeed = factor;
+      ySpeed = ySpeed / abs(factor);
+    }
+    else {
+      // remove the projectile from the screen if it is too slow
+      xPos = -100;
+      yPos = -100;
+    }
   }
 
   public void render() {
