@@ -11,7 +11,7 @@ public class Button {
 
     status = 0;
 
-    timeOn = seconds * 60;
+    timeOn = seconds * 30;
   }
 
   public void render() {

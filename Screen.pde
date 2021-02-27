@@ -3,8 +3,14 @@ public class Screen {
   int curButtons = 0;
   int totalButtons = 0;
 
+  ArrayList<Projectile> projectileList = new ArrayList();
+
   public void render() {
     renderClicks();
+
+    for (Projectile i : projectileList) {
+      i.render();
+    }
   }
 
   public void renderClicks() {
@@ -22,6 +28,10 @@ public class Screen {
   public void addButton(int x, int y, int seconds) {
     buttonList.add(new Button(x, y, seconds));
     totalButtons++;
+  }
+
+  public void createProjectile(int x1, int y1, int x2, int y2) {
+    projectileList.add(new Projectile(x1, y1, x2, y2));
   }
 
   public boolean levelComplete() {
