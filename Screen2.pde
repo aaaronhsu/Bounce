@@ -1,8 +1,10 @@
-public class Screen1 extends Screen {
+public class Screen2 extends Screen {
 
-  public Screen1() {
+  public Screen2() {
     super.addButton(100, 100, 2);
-    super.addButton(800, 300, 2);
+    super.addButton(600, 300, 2);
+
+    totalButtons = super.buttonList.size();
   }
 
   public void render() {
@@ -15,7 +17,7 @@ public class Screen1 extends Screen {
       if (i.status == 1) curButtons++;
     }
 
-    String screenStatus = super.curButtons + "/" + super.totalButtons + " buttons clicked! 1";
+    String screenStatus = super.curButtons + "/" + super.totalButtons + " buttons clicked! 2";
 
     text(screenStatus, 10, 10, 10);
   }

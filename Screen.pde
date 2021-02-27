@@ -1,5 +1,7 @@
 public class Screen {
   ArrayList<Button> buttonList = new ArrayList();
+  int curButtons = 0;
+  int totalButtons = 0;
 
   public void render() {
     renderClicks();
@@ -15,5 +17,14 @@ public class Screen {
     for (Button i : buttonList) {
       i.update(x, y);
     }
+  }
+
+  public void addButton(int x, int y, int seconds) {
+    buttonList.add(new Button(x, y, seconds));
+    totalButtons++;
+  }
+
+  public boolean levelComplete() {
+    return curButtons == totalButtons && totalButtons != 0;
   }
 }
