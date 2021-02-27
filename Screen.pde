@@ -1,18 +1,18 @@
 public class Screen {
-  ArrayList<Button> clickList = new ArrayList();
+  ArrayList<Button> buttonList = new ArrayList();
 
   public void render() {
     renderClicks();
   }
 
   public void renderClicks() {
-    for (Button i : clickList) {
+    for (Button i : buttonList) {
       i.render();
     }
   }
 
   public void update(int x, int y) {
-    for (Button i : clickList) {
+    for (Button i : buttonList) {
       i.update(x, y);
     }
   }

@@ -1,13 +1,17 @@
 public class Button {
   private int x, y;
   private int status; // 0- unclicked, 1- clicked
+  private int timeOn;
 
   private int timer = 0;
 
-  public Button(int x, int y) {
+  public Button(int x, int y, int seconds) {
     this.x = x;
     this.y = y;
+
     status = 0;
+
+    timeOn = seconds * 60;
   }
 
   public void render() {
@@ -34,7 +38,7 @@ public class Button {
   public void update(int x, int y) {
     println(x, y);
     if ((this.x - 50) <= x && x <= (this.x + 50) && (this.y - 50) <= y && y <= (this.y + 50)) {
-      timer = 120;
+      timer = timeOn;
     }
   }
 }
