@@ -11,6 +11,8 @@ public class Screen {
     for (Projectile i : projectileList) {
       i.render();
     }
+
+    removeOutOfBoundsObjects();
   }
 
   public void renderClicks() {
@@ -32,6 +34,16 @@ public class Screen {
 
   public void createProjectile(int x1, int y1, int x2, int y2) {
     projectileList.add(new Projectile(x1, y1, x2, y2));
+  }
+
+  public void removeOutOfBoundsObjects() {
+    ArrayList<Projectile> removedProjectiles = new ArrayList();
+    for (Projectile i : projectileList) {
+      if (i.xPos < 0 || i.xPos > width ||
+          i.yPos < 0 || i.yPos > height) removedProjectiles.add(i);
+    }
+
+    for (Projectile i : removedProjectiles) projectileList.remove(i);
   }
 
   public boolean levelComplete() {
