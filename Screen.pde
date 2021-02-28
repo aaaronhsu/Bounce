@@ -32,6 +32,13 @@ public class Screen {
     totalButtons++;
   }
 
+  public void drawProjectileLine(int x1, int y1, int x2, int y2) {
+    stroke(0, 0, 0);
+    strokeWeight(10);
+    line(x1, y1, x2, y2);
+    println(x1, y1, x2, y2);
+  }
+
   public void createProjectile(int x1, int y1, int x2, int y2) {
     projectileList.add(new Projectile(x1, y1, x2, y2));
   }

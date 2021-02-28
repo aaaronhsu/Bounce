@@ -7,8 +7,10 @@ int y1 = 0;
 int x2 = 0;
 int y2 = 0;
 
+boolean drawProjectileLine = false;
+
 void setup() {
-  size(1000, 1000);
+  size(1200, 800);
   frameRate(60);
 }
 
@@ -24,6 +26,8 @@ void draw() {
       screen = new Screen2();
     }
   }
+
+  if (drawProjectileLine) screen.drawProjectileLine(x1, y1, x2, y2);
 
   screen.render();
 }
@@ -41,6 +45,15 @@ void mousePressed() {
   }
 }
 
+void mouseDragged() {
+  if (mouseButton == RIGHT) {
+    x2 = mouseX;
+    y2 = mouseY;
+
+    drawProjectileLine = true;
+  }
+}
+
 void mouseReleased() {
   if (mouseButton == RIGHT) {
     x2 = mouseX;
@@ -52,6 +65,7 @@ void mouseReleased() {
     y1 = 0;
     x2 = 0;
     y2 = 0;
+    drawProjectileLine = false;
   }  
 }
 
