@@ -3,11 +3,16 @@ public class Button {
   private int status; // 0- unclicked, 1- clicked
   private int timeOn;
 
+  private int width, height;
+
   private int timer = 0;
 
   public Button(int x, int y, int seconds) {
     this.x = x;
     this.y = y;
+
+    this.width = 50;
+    this.height = 50;
 
     status = 0;
 
@@ -32,12 +37,20 @@ public class Button {
     fill(c);
     noStroke();
 
-    rect(x, y, 50, 50);
+    rect(x, y, width, height);
   }
 
   public void update(int x, int y) {
     println(x, y);
     if ((this.x - 50) <= x && x <= (this.x + 50) && (this.y - 50) <= y && y <= (this.y + 50)) {
+      timer = timeOn;
+    }
+  }
+
+  public void detectCollision(Projectile projectile) {
+    if (x <= projectile.xPos && projectile.xPos <= x + width &&
+        y <= projectile.yPos && projectile.yPos <= y + height) {
+
       timer = timeOn;
     }
   }

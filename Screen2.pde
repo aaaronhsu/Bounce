@@ -4,6 +4,8 @@ public class Screen2 extends Screen {
     super.addButton(100, 100, 2);
     super.addButton(600, 300, 2);
 
+    super.addWall(400, 400, 200, 20);
+
     totalButtons = super.buttonList.size();
   }
 
@@ -19,6 +21,7 @@ public class Screen2 extends Screen {
 
     String screenStatus = super.curButtons + "/" + super.totalButtons + " buttons clicked! 2";
 
+    fill(color(0, 0, 0));
     text(screenStatus, 10, 10, 10);
   }
 

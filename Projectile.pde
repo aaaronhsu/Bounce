@@ -3,6 +3,9 @@ public class Projectile {
   float xSpeed, ySpeed;
   int xDir, yDir;
 
+  int numCollisions = 0;
+  int nextCollision = 0;
+
   float radius;
 
   public Projectile(int x1, int y1, int x2, int y2) {
@@ -71,6 +74,9 @@ public class Projectile {
   public void render() {
     updatePos();
 
+    if (nextCollision > 0) nextCollision--;
+
+    fill(color(255, 0, 0));
     ellipse(xPos, yPos, radius, radius);
   }
 

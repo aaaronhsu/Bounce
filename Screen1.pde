@@ -17,6 +17,7 @@ public class Screen1 extends Screen {
 
     String screenStatus = super.curButtons + "/" + super.totalButtons + " buttons clicked! 1";
 
+    fill(color(0, 0, 0));
     text(screenStatus, 10, 10, 10);
   }
 
