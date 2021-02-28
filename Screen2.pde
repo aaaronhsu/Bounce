@@ -23,8 +23,8 @@ public class Screen2 extends Screen {
     text(screenStatus, 10, 10, 10);
   }
 
-  public void update(int x, int y) {
-    super.update(x, y);
+  public void detectButtonClick(int x, int y) {
+    super.detectButtonClick(x, y);
   }
 
   public boolean levelComplete() {

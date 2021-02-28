@@ -32,12 +32,14 @@ void draw() {
   screen.render();
 }
 
+// detects click on button
 void mouseClicked() {
   if (mouseButton == LEFT) {
-    screen.update(mouseX, mouseY);
+    screen.detectButtonClick(mouseX, mouseY);
   }
 }
 
+// records projectile start coordinates
 void mousePressed() {
   if (mouseButton == RIGHT) {
     x1 = mouseX;
@@ -45,6 +47,7 @@ void mousePressed() {
   }
 }
 
+// doesn't work, supposed to draw lines between start and end projectile
 void mouseDragged() {
   if (mouseButton == RIGHT) {
     x2 = mouseX;
@@ -54,6 +57,7 @@ void mouseDragged() {
   }
 }
 
+// creates projectile
 void mouseReleased() {
   if (mouseButton == RIGHT) {
     x2 = mouseX;

@@ -33,7 +33,7 @@ public class Screen {
     }
   }
 
-  public void update(int x, int y) {
+  public void detectButtonClick(int x, int y) {
     // updates the button that gets clicked
     for (Button i : buttonList) {
       i.detectClick(x, y);
