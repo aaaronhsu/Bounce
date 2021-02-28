@@ -1,8 +1,13 @@
 public class Screen1 extends Screen {
 
   public Screen1() {
-    super.addButton(100, 100, 2);
-    super.addButton(800, 300, 2);
+    super.addButton(100, 100, 2, false);
+    super.addButton(600, 300, 2, false);
+
+    super.addButton(800, 400, 2, true);
+
+    super.addWall(400, 400, 200, 20);
+    super.addWall(500, 200, 20, 120);
   }
 
   public void render() {

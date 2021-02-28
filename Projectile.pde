@@ -76,7 +76,7 @@ public class Projectile {
 
     if (nextCollision > 0) nextCollision--;
 
-    fill(color(255, 0, 0));
+    fill(color(100, 100, 100));
     ellipse(xPos, yPos, radius, radius);
   }
 

@@ -1,10 +1,8 @@
 public class Screen2 extends Screen {
 
   public Screen2() {
-    super.addButton(100, 100, 2);
-    super.addButton(600, 300, 2);
-
-    super.addWall(400, 400, 200, 20);
+    super.addButton(100, 100, 2, true);
+    super.addButton(800, 300, 2, true);
 
     totalButtons = super.buttonList.size();
   }

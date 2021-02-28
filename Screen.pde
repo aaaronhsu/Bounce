@@ -13,7 +13,7 @@ public class Screen {
       for (Button button : buttonList) {
         button.detectCollision(projectile);
       }
-      
+
       for (Wall wall : wallList) {
         wall.detectCollision(projectile);
       }
@@ -36,12 +36,12 @@ public class Screen {
   public void update(int x, int y) {
     // updates the button that gets clicked
     for (Button i : buttonList) {
-      i.update(x, y);
+      i.detectClick(x, y);
     }
   }
 
-  public void addButton(int x, int y, int seconds) {
-    buttonList.add(new Button(x, y, seconds));
+  public void addButton(int x, int y, int seconds, boolean clickable) {
+    buttonList.add(new Button(x, y, seconds, clickable));
     totalButtons++;
   }
 
