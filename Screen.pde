@@ -57,8 +57,8 @@ public class Screen {
     // println(x1, y1, x2, y2);
   }
 
-  public void createProjectile(int x1, int y1, int x2, int y2) {
-    projectileList.add(new Projectile(x1, y1, x2, y2));
+  public void createProjectile(int x1, int y1, int x2, int y2, int projectileSpeed) {
+    projectileList.add(new Projectile(x1, y1, x2, y2, projectileSpeed));
   }
 
   public void removeOutOfBoundsObjects() {

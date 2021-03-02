@@ -8,14 +8,14 @@ public class Projectile {
 
   float radius;
 
-  public Projectile(int x1, int y1, int x2, int y2) {
+  public Projectile(int x1, int y1, int x2, int y2, int projectileSpeed) {
     xPos = x2;
     yPos = y2;
 
     xSpeed = x1 - x2;
     ySpeed = y1 - y2;
 
-    modifyProjectileSpeed();
+    modifyProjectileSpeed(projectileSpeed);
 
     xDir = 1;
     yDir = 1;
@@ -23,52 +23,68 @@ public class Projectile {
     radius = 15;
   }
 
-  public void modifyProjectileSpeed() {
+  // public void modifyProjectileSpeed() {
 
-    if (abs(xSpeed) > abs(ySpeed)) {
-      if (abs(xSpeed) > 10) {
-        float factor = xSpeed / 10;
-        xSpeed = xSpeed > 0 ? 10 : -10;
-        ySpeed = ySpeed / abs(factor);
-      }
-      else if (abs(xSpeed) > 5) {
-        float factor = xSpeed / 5;
-        xSpeed = xSpeed > 0 ? 5 : -5;
-        ySpeed = ySpeed / abs(factor);
-      }
-      else if (abs(xSpeed) > 3) {
-        float factor = xSpeed / 3;
-        xSpeed = xSpeed > 0 ? 3 : -3;
-        ySpeed = ySpeed / abs(factor);
-      }
-      else {
-        // remove the projectile from the screen if it is too slow
-        xPos = -100;
-        yPos = -100;
-      }
-    }
-    else {
-      if (abs(ySpeed) > 10) {
-        float factor = ySpeed / 10;
-        ySpeed = ySpeed > 0 ? 10 : -10;
-        xSpeed = xSpeed / abs(factor);
-      }
-      else if (abs(ySpeed) > 5) {
-        float factor = ySpeed / 5;
-        ySpeed = ySpeed > 0 ? 5 : -5;
-        xSpeed = xSpeed / abs(factor);
-      }
-      else if (abs(ySpeed) > 3) {
-        float factor = ySpeed / 3;
-        ySpeed = ySpeed > 0 ? 3 : -3;
-        xSpeed = xSpeed / abs(factor);
-      }
-      else {
-        // remove the projectile from the screen if it is too slow
-        xPos = -100;
-        yPos = -100;
-      }
-    }
+  //   if (abs(xSpeed) > abs(ySpeed)) {
+  //     if (abs(xSpeed) > 10) {
+  //       float factor = xSpeed / 10;
+  //       xSpeed = xSpeed > 0 ? 10 : -10;
+  //       ySpeed = ySpeed / abs(factor);
+  //     }
+  //     else if (abs(xSpeed) > 5) {
+  //       float factor = xSpeed / 5;
+  //       xSpeed = xSpeed > 0 ? 5 : -5;
+  //       ySpeed = ySpeed / abs(factor);
+  //     }
+  //     else if (abs(xSpeed) > 3) {
+  //       float factor = xSpeed / 3;
+  //       xSpeed = xSpeed > 0 ? 3 : -3;
+  //       ySpeed = ySpeed / abs(factor);
+  //     }
+  //     else {
+  //       // remove the projectile from the screen if it is too slow
+  //       xPos = -100;
+  //       yPos = -100;
+  //     }
+  //   }
+  //   else {
+  //     if (abs(ySpeed) > 10) {
+  //       float factor = ySpeed / 10;
+  //       ySpeed = ySpeed > 0 ? 10 : -10;
+  //       xSpeed = xSpeed / abs(factor);
+  //     }
+  //     else if (abs(ySpeed) > 5) {
+  //       float factor = ySpeed / 5;
+  //       ySpeed = ySpeed > 0 ? 5 : -5;
+  //       xSpeed = xSpeed / abs(factor);
+  //     }
+  //     else if (abs(ySpeed) > 3) {
+  //       float factor = ySpeed / 3;
+  //       ySpeed = ySpeed > 0 ? 3 : -3;
+  //       xSpeed = xSpeed / abs(factor);
+  //     }
+  //     else {
+  //       // remove the projectile from the screen if it is too slow
+  //       xPos = -100;
+  //       yPos = -100;
+  //     }
+  //   }
+  // }
+
+  public void modifyProjectileSpeed(int projectileSpeed) {
+    int x = xSpeed < 0 ? -1 : 1;
+    int y = ySpeed < 0 ? -1 : 1;
+
+    xSpeed *= x;
+    ySpeed *= y;
+
+    float factor = sqrt(pow(xSpeed, 2) + pow(ySpeed, 2));
+
+    xSpeed /= factor;
+    ySpeed /= factor;
+
+    xSpeed *= x * projectileSpeed;
+    ySpeed *= y * projectileSpeed;
   }
 
   public void render() {

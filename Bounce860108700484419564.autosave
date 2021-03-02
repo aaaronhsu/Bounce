@@ -79,6 +79,7 @@ void mouseReleased() {
 
 // changes projectile speed
 void mouseWheel(MouseEvent e) {
-  if (e.getCount() > 0 && projectileSpeed > 5) projectileSpeed--; 
-  else if (e.getCount() < 0 && projectileSpeed < 15) projectileSpeed++;
+  if (e.getCount() > 0 && projectileSpeed > 15) projectileSpeed--; 
+  else if (e.getCount() < 0 && projectileSpeed < 3) projectileSpeed++;
+  println("update");
 }
